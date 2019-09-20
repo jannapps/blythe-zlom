@@ -38,21 +38,21 @@ Bash script is preferred but Python works fine for now
 
 ## Python script:  
 - Method 1: Hexadecimal char encoding  
-> with open('/dev/hidg0', 'rb+') as fd:  
-> .. fd.write(<HID Event>.encode())  
+	> with open('/dev/hidg0', 'rb+') as fd:  
+	> .. fd.write(<HID Event>.encode())  
     
 We can use the character representation of decimal
 integers along with *.encode() to get some hex to send
 to the HID interface.  
-> (chr(0)*2+chr(4)+chr(0)*5).encode()  
+	> (chr(0)*2+chr(4)+chr(0)*5).encode()  
 
 - Method 2: Raw hexadecimal  
-> with open('/dev/hidg0', 'rb+') as fd:  
-> .. fd.write(<HID Event>)  
+	> with open('/dev/hidg0', 'rb+') as fd:  
+	> .. fd.write(<HID Event>)  
 
-Use Python's hexadecimal representation as the raw event
-to write to the HID interface.  
-> b'\x00\x00\x00\x00\x00\x00\x00\x00'  
+	Use Python's hexadecimal representation as the raw event
+	to write to the HID interface.  
+	> b'\x00\x00\x00\x00\x00\x00\x00\x00'  
 
 ## Bash script:  
 Just write raw hexadecimal to the HID interface. Easy!  
