@@ -37,9 +37,7 @@ Bash script is preferred but Python works fine for now
 # Sending keyboard events  
 
 ## Python script:  
-> from time import sleep  
-
-### Method 1: Hexadecimal char encoding  
+- Method 1: Hexadecimal char encoding  
 > with open('/dev/hidg0', 'rb+') as fd:  
 > .. fd.write(<HID Event>.encode())  
     
@@ -48,7 +46,7 @@ integers along with *.encode() to get some hex to send
 to the HID interface.  
 > (chr(0)*2+chr(4)+chr(0)*5).encode()  
 
-### Method 2: Raw hexadecimal  
+- Method 2: Raw hexadecimal  
 > with open('/dev/hidg0', 'rb+') as fd:  
 > .. fd.write(<HID Event>)  
 
