@@ -12,9 +12,9 @@ Installing the config scripts
 	`# cp /extra/blythe/usb-keyboard /usr/bin/`  
 	`# chmod +x /usr/bin/usb-keyboard`  
 
-Initialize program group
-	`# addgroup blythe`
-	`# usermod -aG blythe root <your_user> <any_others>`
+Initialize program group  
+	`# addgroup blythe`  
+	`# usermod -aG blythe root <your_user> <any_others>`   
 
 We want this script to run at startup automatically;
 add this line to /etc/rc.local before
