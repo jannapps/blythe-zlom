@@ -12,6 +12,10 @@ Installing the config scripts
 	`# cp /extra/blythe/usb-keyboard /usr/bin/`  
 	`# chmod +x /usr/bin/usb-keyboard`  
 
+Initialize program group
+	`# addgroup blythe`
+	`# usermod -aG blythe root <your_user> <any_others>`
+
 We want this script to run at startup automatically;
 add this line to /etc/rc.local before
 the line containing 'exit 0':  
@@ -21,8 +25,8 @@ If using the provided config script, the output device is
 	`/dev/hidg0`  
 
 The default permissions for this should be 600. We want
-pitou to be able to run the scripts in /extra/, so the
-config script should also do  
+users to be able to run the scripts if they belong
+to the blythe group, so the config script should also do  
 	`# chmod 660 /dev/hidg0`  
 	`# chgrp blythe /dev/hidg0`  
 
