@@ -17,7 +17,7 @@ add this line to /etc/rc.local before
 the line containing 'exit 0':  
 	> `/usr/bin/usb-keyboard # configure libcomposite`  
 
-If using the provided config script, the output device is
+If using the provided config script, the output device is  
 	> `/dev/hidg0`  
 
 The default permissions for this should be 600. We want
