@@ -28,7 +28,7 @@ config script should also do
 
 # Sending the reset signal
 
-## Python script:  
+## Python script:
 	`>>> from gpiozero import LED`  
 	`>>> from time import sleep`  
 
