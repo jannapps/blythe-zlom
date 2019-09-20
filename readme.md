@@ -13,7 +13,7 @@ Installing the config scripts
 > chmod +x /usr/bin/usb-keyboard  
 
 We want this script to run at startup automatically;
-add this line to /etc/rc.local before  
+add this line to /etc/rc.local before
 the line containing 'exit 0':  
 > /usr/bin/usb-keyboard  
 
@@ -36,36 +36,34 @@ Bash script is preferred but Python works fine for now
 
 # Sending keyboard events  
 
-Python script:  
+## Python script:  
 > from time import sleep  
 
-  Method 1: Hexadecimal char encoding  
-  > with open('/dev/hidg0', 'rb+') as fd:  
-  > .. fd.write(<HID Event>.encode())  
+### Method 1: Hexadecimal char encoding  
+> with open('/dev/hidg0', 'rb+') as fd:  
+> .. fd.write(<HID Event>.encode())  
     
-    We can use the character representation of decimal
-    integers along with *.encode() to get some hex to send
-    to the HID interface.  
+We can use the character representation of decimal
+integers along with *.encode() to get some hex to send
+to the HID interface.  
+> (chr(0)*2+chr(4)+chr(0)*5).encode()  
 
-    > (chr(0)*2+chr(4)+chr(0)*5).encode()  
+### Method 2: Raw hexadecimal  
+> with open('/dev/hidg0', 'rb+') as fd:  
+> .. fd.write(<HID Event>)  
 
-  Method 2: Raw hexadecimal  
-  > with open('/dev/hidg0', 'rb+') as fd:  
-  > .. fd.write(<HID Event>)  
+Use Python's hexadecimal representation as the raw event
+to write to the HID interface.  
+> b'\x00\x00\x00\x00\x00\x00\x00\x00'  
 
-    Use Python's hexadecimal representation as the raw event
-    to write to the HID interface.  
+## Bash script:  
+Just write raw hexadecimal to the HID interface. Easy!  
+> echo -en \\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00 >> /dev/hidg0  
 
-    > b'\x00\x00\x00\x00\x00\x00\x00\x00'  
-
-Bash script:  
-  Just write raw hexadecimal to the HID interface. Easy!  
-  > echo -en \\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00 >> /dev/hidg0  
-
-  # Writing HID events
+# Writing HID events
 
 
-todo:  
+# To-Do  
 HID event documentation  
 write reset script for windows and linux  
 wrap up and stick in /usr/bin/  
