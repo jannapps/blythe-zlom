@@ -41,9 +41,9 @@ Bash script is preferred but Python works fine for now
 	> with open('/dev/hidg0', 'rb+') as fd:  
 	> .. fd.write(<HID Event>.encode())  
     
-We can use the character representation of decimal
-integers along with *.encode() to get some hex to send
-to the HID interface.  
+	We can use the character representation of decimal
+	integers along with *.encode() to get some hex to send
+	to the HID interface.  
 	> (chr(0)*2+chr(4)+chr(0)*5).encode()  
 
 - Method 2: Raw hexadecimal  
