@@ -1,6 +1,6 @@
 Blythe Z-LOM Interface implementation notes
 
-#Setup
+  # Setup
 
 Enabling modules and drivers:
   echo 'dtoverlay=dwc2' | sudo tee -a /boot/config.txt
@@ -25,7 +25,7 @@ config script should also do
   chmod 660 /dev/hidg0
   chgrp blythe /dev/hidg0
 
-#Sending the reset signal
+  # Sending the reset signal
 
 Python script:
   from gpiozero import LED
@@ -33,7 +33,7 @@ Python script:
 
 Bash script is preferred but Python works fine for now
 
-#Sending keyboard events
+  # Sending keyboard events
 
 Python script:
   from time import sleep
@@ -61,7 +61,7 @@ Bash script:
   Just write raw hexadecimal to the HID interface. Easy!
   echo -en \\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00 >> /dev/hidg0
 
-#Writing HID events
+  # Writing HID events
 
 
 todo:
