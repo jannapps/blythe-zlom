@@ -1,0 +1,2 @@
+#!/bin/bash
+echo -en \\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00 >> /dev/hidg0

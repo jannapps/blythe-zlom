@@ -1,0 +1,5 @@
+#!/bin/bash
+
+alias clrbfr='echo -en \x00\x00\x00\x00\x00\x00\x00\x00 >> /dev/hidg0'
+echo -en \\x00\\x00\\x00\\x04\\x00\\x00\\x00\\x00 >> /dev/hidg0; clrbfr
+echo -en \\x02\\x00\\x00\\x04\\x00\\x00\\x00\\x00 >> /dev/hidg0; clrbfr
