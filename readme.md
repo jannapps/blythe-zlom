@@ -29,8 +29,8 @@ config script should also do
 # Sending the reset signal
 
 ## Python script:
-	`>>> from gpiozero import LED`  
-	`>>> from time import sleep`  
+`>>> from gpiozero import LED`  
+`>>> from time import sleep`  
 
 ## Bash script:
 Currently we don't have a Bash script to handle sending the signals
