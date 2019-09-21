@@ -5,10 +5,11 @@ resembles the Sun Lights-Out Management software that can be used to remotely
 control the power state and boot sequence of a server box. The only thing
 required is a way to connect a USB device into your box from the inside, a
 few female-to-female single-pin cables or one female-to-female two-pin cable,
-and an RPi Zero with some kind of remote login enabled.  
+and an RPi Zero with GPIO headers and some kind of remote login enabled.  
 
 # Setup
 
+## Software
 Enabling modules and drivers:  
 	`$ echo 'dtoverlay=dwc2' | sudo tee -a /boot/config.txt`  
 	`$ echo 'dwc2' | sudo tee -a /etc/modules`  
@@ -35,6 +36,22 @@ users to be able to run the scripts if they belong
 to the blythe group, so the config script should also do  
 	`# chmod 660 /dev/hidg0`  
 	`# chgrp blythe /dev/hidg0`  
+
+## Hardware
+1. Attach the RPi Zero to the inside of your machine  
+2. Connect the middlemost MicroUSB port on the RPi to a port on your machine  
+3. Connect the RPi's GPIO pins 9 and 11 to the two reset pins on the
+   motherboard  
+
+Step 3 can be more complicated, due to the fact that you need to
+differentiate between the ground and signal pins on both the RPi and your
+machine's motherboard. Pin 9 is the ground and 11 is the signal on the RPi,
+and you should check your motherboard's documentation to see how that is
+set up on your machine.  
+
+While it would make sense for the RPi Zero to be inside the box you want to
+manage, it's not strictly necessary, as long as your female-to-female
+two-pin cable is long enough to connect to the motherboard's reset pins. 
 
 # Sending the reset signal
 
