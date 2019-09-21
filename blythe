@@ -38,5 +38,35 @@ elif TRGT not in TRGTS:
   sys.exit()
 
 
+# begin execution
+
+# send reset signal to motherboard if reboot is desired
+if MODE == 'reboot':
+  resetPin = LED(17)
+  resetPin.on()
+  sleep(1)
+  resetPin.off()
+
+  # process for rebooting into windows
+  if TRGT == 'windows':
+    # # # insert code for booting here
+    pass
+
+  # process for rebooting into linux
+  elif TRGT == 'linux':
+    # # # insert code for booting here
+    pass
+
+  else:
+    print('Reboot target not recognized.')
+    sys.exit()
+elif:
+  # # # insert code for other operation modes here
+  pass
+else:
+  print('Operation mode not recognized.')
+  sys.exit()
+
 
 print('Done.')
+# end execution
