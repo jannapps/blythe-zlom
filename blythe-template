@@ -1,0 +1,72 @@
+#!/usr/bin/python3
+
+# this is the executable file for the blythe-zlom application
+
+# get necessary packages
+import sys, os
+from gpiozero import LED
+from time import sleep
+
+# ensure proper permissions
+if not os.access('/dev/hidg0', os.R_OK):
+  print('Permissions error, or HID device not initialized.')
+  sys.exit()
+
+# initialize functions and variables
+def rwrite(report):
+  with open('/dev/hidg0', 'rb+') as fd:
+    fd.write(report)
+def cb():
+  rwrite(b'\x00\x00\x00\x00\x00\x00\x00x\x00')
+MODES = ['reboot']
+TRGTS = ['windows', 'linux']
+
+# parse the argument list
+if len(sys.argv) != 3:
+  print('Usage:')
+  print('  blythe reboot [windows|linux]')
+  sys.exit()
+MODE = sys.argv[1].lower()
+TRGT = sys.argv[2].lower()
+
+# check the argument list for errors
+if MODE not in MODES:
+  print('Argument 1 not recognized.')
+  sys.exit()
+elif TRGT not in TRGTS:
+  print('Argument 2 not recognized.')
+  sys.exit()
+
+
+# begin execution
+
+# send reset signal to motherboard if reboot is desired
+if MODE == 'reboot':
+  resetPin = LED(17)
+  resetPin.on()
+  sleep(1)
+  resetPin.off()
+
+  # process for rebooting into windows
+  if TRGT == 'windows':
+    # # # insert code for booting here
+    pass
+
+  # process for rebooting into linux
+  elif TRGT == 'linux':
+    # # # insert code for booting here
+    pass
+
+  else:
+    print('Reboot target not recognized.')
+    sys.exit()
+elif:
+  # # # insert code for other operation modes here
+  pass
+else:
+  print('Operation mode not recognized.')
+  sys.exit()
+
+
+print('Done.')
+# end execution
