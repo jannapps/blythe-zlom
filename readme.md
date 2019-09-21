@@ -48,11 +48,11 @@ differentiate between the ground and signal pins on both the RPi and your
 machine's motherboard. Pin 9 is the ground and 11 is the signal on the RPi,
 and you should check your motherboard's documentation to see how that is
 set up on your machine. For more info about the GPIO pins, check 
-<https://www.pinout.xyz>.   
+[pinout.xyz](https://www.pinout.xyz 'RPi GPIO Pin Documentation').   
    
 While it would make sense for the RPi Zero to be inside the box you want to
 manage, it's not strictly necessary, as long as your female-to-female
-two-pin cable is long enough to connect to the motherboard's reset pins. 
+two-pin cable is long enough to connect to the motherboard's reset pins. v
 
 # Sending the reset signal
 
