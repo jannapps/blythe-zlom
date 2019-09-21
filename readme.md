@@ -26,7 +26,7 @@ Initialize program group
 We want this script to run at startup automatically;
 add this line to /etc/rc.local before
 the line containing 'exit 0':  
-	`/usr/bin/usb-keyboard # configure libcomposite`  
+	`/usr/bin/usb-keyboard # configure blythe-zlom`  
 
 If using the provided config script, the output device is  
 	`/dev/hidg0`  
