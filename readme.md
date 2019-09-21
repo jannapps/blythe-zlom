@@ -1,5 +1,11 @@
 # About
 
+This application is used to turn a RaspberryPi Zero into something that
+resembles the Sun Lights-Out Management software that can be used to remotely
+control the power state and boot sequence of a server box. The only thing
+required is a way to connect a USB device into your box from the inside, a
+few female-to-female single-pin cables or one female-to-female two-pin cable,
+and an RPi Zero with some kind of remote login enabled.  
 
 # Setup
 
