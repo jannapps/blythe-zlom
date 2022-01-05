@@ -1,3 +1,12 @@
+# Notice
+
+This software is still in-development and will not function without 
+heavy modification. Use at your own risk.
+
+An optocoupler is necessary to allow the RPI's GPIO pin circuits to
+interface with the PC's I/O panel circuits. Serious electrical damage
+will occur if the circuits are connected directly.
+
 # About
 
 This application is used to turn a RaspberryPi Zero into something that
